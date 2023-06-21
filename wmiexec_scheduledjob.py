@@ -37,7 +37,7 @@ def execute_command_wmi(command, username, password, target_computer):
     job_id, result = c.Win32_ScheduledJob.Create(Command=command, StartTime=begin_time)
 
     if result == 0:
-        print(f"[+] Command executed successfully. Job ID: {job_id}\n")
+        print(f"[+] Command will be executed in 1 minute. Job ID: {job_id}\n")
     else:
         print("[-] Failed to execute command.\n")
 
