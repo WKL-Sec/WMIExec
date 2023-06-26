@@ -1,10 +1,13 @@
 # WMIexec
 Set of python scripts which perform different ways of command execution via WMI protocol.
 
+## Blog Post
+https://whiteknightlabs.com/2023/06/26/navigating-stealthy-wmi-lateral-movement/
+
 ## Usage  
 
 ### wmiexec_scheduledjob.py  
-Is a python script which authenticates to a remote WMI instance and execute commands via `Win32_Process`.
+Is a python script which authenticates to a remote WMI instance and execute commands via Scheduled Tasks.
 
 To run the script:  
 ```bash
@@ -12,7 +15,7 @@ python3 wmiexec_scheduledjob.py -i <ip_address> -u <username> -p <password> -c <
 ```
 
 ### wmiexec_win32process.py  
-Is a python script which authenticates to a remote WMI instance and execute commands via Scheduled Tasks.  
+Is a python script which authenticates to a remote WMI instance and execute commands via `Win32_Process`.  
 
 To run the script:  
 ```bash
